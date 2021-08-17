@@ -28,11 +28,9 @@ describe('index', () => {
     const readJson = (file: string): any => JSON.parse(fs.readFileSync(path.resolve(file), 'utf8'));
     const writeJson = (file: string, obj: any): any => fs.writeFileSync(path.resolve(file), JSON.stringify(obj, null, 2) + '\n');
 
-    beforeEach(function(this: Mocha.IBeforeAndAfterContext): any {
-        this.timeout(10000);
+    beforeEach(() => {
         fsExtra.removeSync(testDir);
         mkdirIfNotExist(testDir);
-        return;
     });
 
     describe('dry commands match npm commands', () => {

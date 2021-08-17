@@ -6,7 +6,7 @@ import { ArgumentMapping } from './argument-mapping';
 /**
  * Hold the description of a nodejs packager and how it integrates with dry
  */
-@JsonObject
+@JsonObject('DryPackagerDescriptor')
 export class DryPackagerDescriptor {
     private static PACKAGER_TEMPLATES_PATH: string = '../packagerDescriptorTemplates';
     /**

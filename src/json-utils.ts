@@ -24,7 +24,7 @@ export class JsonUtils {
     public static loadObject<V>(
         file: string,
         classReference: {
-            new (): V;
+            new(): V;
         },
     ): V {
         // Choose your settings
@@ -55,6 +55,6 @@ export class JsonUtils {
             diffs.filter((diff) => diff.kind !== 'D').forEach((diff) => deepDiff.applyChange(json, newJson, diff));
         });
 
-        return jsonConvert.deserialize(json, classReference);
+        return <V>jsonConvert.deserialize(json, classReference);
     }
 }

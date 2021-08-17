@@ -1,7 +1,7 @@
 {
     "extends": "./node_modules/google-ts-style/tsconfig-google.json",
     "compilerOptions": {
-        "target": "es6",
+        "target": "es2019",
         "moduleResolution": "node",
         "outDir": "./dist",
         "typeRoots": [

@@ -22,7 +22,7 @@ class ArgValueMapConverter implements JsonCustomConvert<Map<string, string[]>> {
 /**
  * Responsible for the requested npm command propagation
  */
-@JsonObject
+@JsonObject('ArgumentMapping')
 export class ArgumentMapping {
     /**
      * The list of arguments handled by this mapping
