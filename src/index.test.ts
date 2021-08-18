@@ -204,7 +204,7 @@ describe('index', () => {
         });
         it('check dry command config mapping', () => {
             const inArgs: string[] = ['init', '-f', '-D'];
-            const cfg: DryCommandConfig = new DryCommandConfig(inArgs);
+            const cfg: DryCommandConfig = new DryCommandConfig(inArgs, null);
             const outArgs: string[] = cfg.getCommandProxyArgs();
             const outInstallParentArgs: string[] = cfg.getInstallParentCommandProxyArgs();
 

@@ -125,3 +125,6 @@ fabric.properties
 # Build files
 dist
 dist-test
+
+# Local scripts
+/_*

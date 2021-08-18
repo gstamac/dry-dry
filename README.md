@@ -7,7 +7,7 @@
 ### Get it
 
 ```bash
-$ npm i -g dry-dry
+$ npm i -g @gstamac/dry-dry
 ```
 
 ### Use it
@@ -181,22 +181,22 @@ Other handled parameters:
 
 Dry use by default `npm` and it also allows using another package manager like `pnpm` and `yarn` trough the parameter `--dry-packager`.
 
-If you're not using one of the configured packagers or if you need to extend an existing packager then you can provide to 
+If you're not using one of the configured packagers or if you need to extend an existing packager then you can provide to
 the `--dry-packager` parameter a path to a 'Package Manager Descriptor' json file.
 
 All package manager available in Dry are defined using a 'Package Manager Descriptor'.
 It provides to Dry which command it needs to execute and how to handle and map dry supported arguments
 
-    							       
+
 ```json
 
 {
     "extends": "",
-    "packageManager": "", 
-    "installParentCommandTemplate": "", 
+    "packageManager": "",
+    "installParentCommandTemplate": "",
     "preventPackageJsonChangeFromParentInstall": true|false,
     "mappedArguments" : [
-        { 
+        {
             "arguments": [""],
             "expectSubArgument": true|false,
             "allowArgInInstallParentCommand": true|false,
@@ -206,13 +206,13 @@ It provides to Dry which command it needs to execute and how to handle and map d
                 "": [""]
             }
         },
-        { 
+        {
             "arguments": [""],
             "allowArgInInstallParentCommand": true|false,
             "mappedTo" : [""]
         }
  	]
-}        
+}
 ```
 
 DryPackagerDescriptor

@@ -45,7 +45,7 @@ export class DryCommandConfig {
     /**
      * @param {Cli} cli The CLI to use
      */
-    constructor(private readonly rawArgs: string[]) {
+    constructor(private readonly rawArgs: string[], private readonly config: any) {
         this.steps = [];
         this.availableFeatures = [];
         this.commandProxyArgs = [];
@@ -146,7 +146,7 @@ export class DryCommandConfig {
      * Load the dry command configuration from the provided cli arguments
      */
     private loadConfig(): void {
-        const unprocessedArgs: string[] = this.rawArgs;
+        const unprocessedArgs: string[] = this.rawArgs.concat(this.configToArgs());
         this.loadPackagerDescriptor(unprocessedArgs);
 
         while (unprocessedArgs.length > 0) {
@@ -168,5 +168,25 @@ export class DryCommandConfig {
                 );
             }
         }
+    }
+
+    private configToArgs(): string[] {
+        const isBool = (v: any) => typeof v === 'boolean' || v === 'true' || v === 'false';
+
+        const args: string[] = [];
+
+        for (const k in (this.config || {})) {
+            const v = this.config[k]
+            if (isBool(v)) {
+                if (v === true || v === 'true') {
+                    args.push(`--dry-${k}`);
+                }
+            } else {
+                args.push(`--dry-${k}`);
+                args.push(`${v}`)
+            }
+        }
+
+        return args
     }
 }

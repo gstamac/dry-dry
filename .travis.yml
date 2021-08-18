@@ -2,11 +2,12 @@ language: node_js
 node_js:
   - "stable"
 install:
-  - npm install
+  - npm i -g yarn
+  - yarn install
 script:
-  - npm run build 
-  - npm run lint
-  - npm run style
-  - npm test
+  - yarn build
+  - yarn lint
+  - yarn style
+  - yarn test
 after_failure:
-  - "cat /home/travis/builds/Cosium/dry-dry/npm-debug.log"
+  - "cat /home/travis/builds/Cosium/dry-dry/yarn-error.log"

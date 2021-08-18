@@ -5,9 +5,10 @@ import { DryCommandConfig } from './dry-command-config';
 import { DryCommandExecutor } from './dry-command-executor';
 import { DryContext } from './dry-context';
 import { Logger } from './logger';
+import { cosmiconfigSync } from 'cosmiconfig';
 
 const cli = Cli.of(process);
-const dryCommandConfig = new DryCommandConfig(process.argv.slice(2));
+const dryCommandConfig = new DryCommandConfig(process.argv.slice(2), cosmiconfigSync('dry').search().config);
 const dependencyResolver = new DependencyResolver(cli, dryCommandConfig);
 const dryContext = new DryContext(cli, dependencyResolver, dryCommandConfig);
 

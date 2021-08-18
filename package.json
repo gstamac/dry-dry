@@ -1,6 +1,6 @@
 {
   "name": "@gstamac/dry-dry",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Use npm across multiple projects without repeating yourself",
   "main": "dist/index.js",
   "bin": {
@@ -15,7 +15,8 @@
     "test": "mocha -r ts-node/register src/**/*.test.ts --timeout 10000",
     "lint": "tslint -p .",
     "style": "prettier -l \"src/**/*.ts\"",
-    "release": "yarn build && yarn test && yarn version minor && git push && git push --tags && yarn publish"
+    "test:full": "yarn build && yarn test && yarn lint",
+    "release": "yarn build && yarn publish"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,6 @@
     "deep-equal": "2.0.5",
     "fs-extra": "10.0.0",
     "google-ts-style": "0.2.0",
-    "json2typescript": "1.4.1",
     "mocha": "9.0.3",
     "prettier": "2.3.2",
     "rimraf": "3.0.2",
@@ -58,9 +58,11 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
+    "cosmiconfig": "^7.0.0",
     "deep-diff": "1.0.2",
     "deepmerge": "4.2.2",
     "import-cwd": "3.0.0",
+    "json2typescript": "1.4.1",
     "loglevel": "1.7.1"
   }
 }
